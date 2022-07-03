@@ -1,0 +1,67 @@
+.dialog-backdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.dialog {
+    --dialog-primary: #e57373;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: clamp(0px, 90vw, 400px);
+    padding: 16px;
+    background-color: #fff;
+    transform: translate3d(-50%, -50%, 0);
+    box-sizing: border-box;
+    border-radius: 8px;
+    line-height: 1.5;
+}
+
+.dialog__title {
+    margin: 0 0 1rem 0;
+}
+
+.dialog__buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.dialog__button {
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.dialog__button--confirm {
+    border: 1px solid var(--dialog-primary);
+    background-color: var(--dialog-primary);
+}
+
+.dialog__button--cancel {
+    border: 1px solid #e1e1e1;
+    background-color: #fff;
+    color: var(--dialog-primary);
+}
+
+@media (prefers-color-scheme: dark) {
+    .dialog {
+        --dialog-primary: #ffcdd2;
+        background-color: #121212;
+        color: #f1f1f1;
+    }
+
+    .dialog__button--confirm {
+        color: #121212;
+    }
+
+    .dialog__button--cancel {
+        border: 1px solid #4f4f4f;
+        background-color: #121212;
+        color: var(--dialog-primary);
+    }
+}
