@@ -1,5 +1,5 @@
-export type ResponseHandler = (value: boolean | PromiseLike<boolean>) => void;
-export type DialogType = "alert" | "confirm";
+export type ResponseHandler<T> = (value: T | PromiseLike<T>) => void;
+export type DialogType = "alert" | "confirm" | "prompt";
 
 export interface DialogStore {
     title: string;
