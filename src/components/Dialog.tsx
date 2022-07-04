@@ -13,7 +13,9 @@ export default function Dialog() {
             <div className="dialog-backdrop" onClick={onCancel} />
             <section className="dialog">
                 <h2 className="dialog__title">{title}</h2>
-                {description && <p>{description}</p>}
+                {description && (
+                    <p className="dialog__description">{description}</p>
+                )}
                 <div className="dialog__buttons">
                     <button
                         type="button"
