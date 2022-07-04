@@ -8,31 +8,27 @@ export default function App() {
     const showConfirm = useCallback(async () => {
         const confirmed = await confirm(
             "Are you sure?",
-            "This can't be undone"
+            "This can't be undone."
         );
 
-        if (confirmed) {
-            setMessage("Sure!");
-        } else {
-            setMessage("Nope.");
-        }
+        setMessage(confirmed ? "Sure!" : "Nope.");
     }, []);
 
     const showAlert = useCallback(async () => {
-        alert("Hello there!");
+        await alert("Hello there!");
+
+        setMessage("Will update after alert");
     }, []);
 
     return (
-        <div>
-            <div>
-                <button type="button" onClick={showConfirm}>
-                    Confirm
-                </button>
-                <button type="button" onClick={showAlert}>
-                    Alert
-                </button>
-                <div>{message}</div>
-            </div>
+        <div style={{ textAlign: "center" }}>
+            <button type="button" onClick={showConfirm}>
+                Confirm
+            </button>
+            <button type="button" onClick={showAlert}>
+                Alert
+            </button>
+            <h1>{message}</h1>
         </div>
     );
 }
