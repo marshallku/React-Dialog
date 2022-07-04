@@ -10,7 +10,7 @@ export default function Dialog() {
 
     const DialogComponent = () => (
         <>
-            <div className="dialog-backdrop" />
+            <div className="dialog-backdrop" onClick={onCancel} />
             <section className="dialog">
                 <h2 className="dialog__title">{text}</h2>
                 <div className="dialog__buttons">
