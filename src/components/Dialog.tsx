@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { createPortal } from "react-dom";
 import useDialogStore from "../store/useDialogStore";
 import useDialog from "../hooks/useDialog";
@@ -7,8 +8,7 @@ export default function Dialog() {
     const dialogRoot = document.getElementById("dialog") as HTMLElement;
     const { revealed, title, description, type } = useDialogStore();
     const { onConfirm, onCancel } = useDialog();
-
-    const DialogComponent = () => (
+    const DialogComponent = memo(() => (
         <>
             <div className="dialog-backdrop" onClick={onCancel} />
             <section className="dialog">
@@ -36,7 +36,7 @@ export default function Dialog() {
                 </div>
             </section>
         </>
-    );
+    ));
 
     return createPortal(revealed ? <DialogComponent /> : null, dialogRoot);
 }
