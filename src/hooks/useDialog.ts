@@ -14,12 +14,14 @@ export default function useDialog() {
         setRevealed(false);
         responseHandler?.(true);
         setTitle("");
+        setDescription("");
     };
 
     const onCancel = () => {
         setRevealed(false);
         responseHandler?.(false);
         setTitle("");
+        setDescription("");
     };
 
     const confirm = (title: string, description = "") => {
