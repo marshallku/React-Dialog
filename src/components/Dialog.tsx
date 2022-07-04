@@ -8,23 +8,23 @@ export default function Dialog() {
     const dialogRoot = document.getElementById("dialog") as HTMLElement;
     const inputRef = useRef<HTMLInputElement>(null);
     const { revealed, title, description, type } = useDialogStore();
-    const { onConfirm, onCancel } = useDialog();
+    const { onInteractionEnd } = useDialog();
     const handleConfirmClick = useCallback(() => {
         if (type === "prompt") {
-            onConfirm(inputRef.current?.value || "");
+            onInteractionEnd(inputRef.current?.value || "");
             return;
         }
 
-        onConfirm(true);
-    }, [inputRef.current, type, onConfirm]);
+        onInteractionEnd(true);
+    }, [inputRef.current, type, onInteractionEnd]);
     const handleCancelClick = useCallback(() => {
         if (type === "prompt") {
-            onCancel("");
+            onInteractionEnd("");
             return;
         }
 
-        onCancel(false);
-    }, [type, onConfirm]);
+        onInteractionEnd(false);
+    }, [type, onInteractionEnd]);
     const DialogComponent = memo(() => (
         <>
             <div className="dialog-backdrop" onClick={handleCancelClick} />

@@ -10,14 +10,7 @@ export default function useDialog() {
         setResponseHandler,
     } = useDialogStore();
 
-    const onConfirm = (value: string | boolean) => {
-        setRevealed(false);
-        responseHandler?.(value);
-        setTitle("");
-        setDescription("");
-    };
-
-    const onCancel = (value: string | boolean) => {
+    const onInteractionEnd = (value: string | boolean) => {
         setRevealed(false);
         responseHandler?.(value);
         setTitle("");
@@ -61,7 +54,6 @@ export default function useDialog() {
         confirm,
         alert,
         prompt,
-        onConfirm,
-        onCancel,
+        onInteractionEnd,
     };
 }
