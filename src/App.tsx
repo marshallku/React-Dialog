@@ -6,7 +6,10 @@ export default function App() {
     const [message, setMessage] = useState("");
 
     const showConfirm = useCallback(async () => {
-        const confirmed = await confirm("Are you sure?");
+        const confirmed = await confirm(
+            "Are you sure?",
+            "This can't be undone"
+        );
 
         if (confirmed) {
             setMessage("Sure!");

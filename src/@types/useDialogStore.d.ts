@@ -2,8 +2,10 @@ export type ResponseHandler = (value: boolean | PromiseLike<boolean>) => void;
 export type DialogType = "alert" | "confirm";
 
 export interface DialogStore {
-    text: string;
-    setText: (text: string) => void;
+    title: string;
+    setTitle: (text: string) => void;
+    description: string;
+    setDescription: (description: string) => void;
     type: DialogType;
     setType: (state: DialogType) => void;
     revealed: boolean;

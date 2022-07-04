@@ -2,9 +2,13 @@ import create from "zustand";
 import { DialogStore } from "../@types/useDialogStore";
 
 export default create<DialogStore>((set) => ({
-    text: "",
-    setText: (text) => {
-        set((prev) => ({ ...prev, text }));
+    title: "",
+    setTitle: (title) => {
+        set((prev) => ({ ...prev, title }));
+    },
+    description: "",
+    setDescription: (description) => {
+        set((prev) => ({ ...prev, description }));
     },
     type: "alert",
     setType: (type) => {

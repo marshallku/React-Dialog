@@ -5,14 +5,15 @@ import "./Dialog.css";
 
 export default function Dialog() {
     const dialogRoot = document.getElementById("dialog") as HTMLElement;
-    const { revealed, text, type } = useDialogStore();
+    const { revealed, title, description, type } = useDialogStore();
     const { onConfirm, onCancel } = useDialog();
 
     const DialogComponent = () => (
         <>
             <div className="dialog-backdrop" onClick={onCancel} />
             <section className="dialog">
-                <h2 className="dialog__title">{text}</h2>
+                <h2 className="dialog__title">{title}</h2>
+                {description && <p>{description}</p>}
                 <div className="dialog__buttons">
                     <button
                         type="button"
