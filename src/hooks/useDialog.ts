@@ -1,4 +1,5 @@
 import useDialogStore from "../store/useDialogStore";
+import { DialogType } from "../@types/useDialogStore";
 
 export default function useDialog() {
     const {
@@ -17,11 +18,19 @@ export default function useDialog() {
         setDescription("");
     };
 
-    const confirm = (title: string, description = "") => {
+    const setAttributes = (
+        type: DialogType,
+        title: string,
+        description: string
+    ) => {
         setRevealed(true);
         setTitle(title);
         setDescription(description);
-        setType("confirm");
+        setType(type);
+    };
+
+    const confirm = (title: string, description = "") => {
+        setAttributes("confirm", title, description);
 
         return new Promise<boolean>((res) => {
             setResponseHandler(res);
@@ -29,10 +38,7 @@ export default function useDialog() {
     };
 
     const alert = (title: string, description = "") => {
-        setRevealed(true);
-        setTitle(title);
-        setDescription(description);
-        setType("alert");
+        setAttributes("alert", title, description);
 
         return new Promise<boolean>((res) => {
             setResponseHandler(res);
@@ -40,12 +46,9 @@ export default function useDialog() {
     };
 
     const prompt = (title: string, description = "") => {
-        setRevealed(true);
-        setTitle(title);
-        setDescription(description);
-        setType("prompt");
+        setAttributes("prompt", title, description);
 
-        return new Promise<string>((res) => {
+        return new Promise<boolean>((res) => {
             setResponseHandler(res);
         });
     };
