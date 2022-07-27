@@ -28,7 +28,7 @@ export default function Dialog() {
     const DialogComponent = memo(() => (
         <>
             <div className="dialog-backdrop" onClick={handleCancelClick} />
-            <section className="dialog">
+            <dialog className="dialog" open={revealed}>
                 <h2 className="dialog__title">{title}</h2>
                 {description && (
                     <p className="dialog__description">{description}</p>
@@ -61,7 +61,7 @@ export default function Dialog() {
                         </button>
                     )}
                 </div>
-            </section>
+            </dialog>
         </>
     ));
 

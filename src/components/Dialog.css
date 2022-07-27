@@ -14,9 +14,11 @@
     left: 50%;
     width: clamp(0px, 90vw, 400px);
     padding: 16px;
+    margin: 0;
     background-color: #fff;
     transform: translate3d(-50%, -50%, 0);
     box-sizing: border-box;
+    border: none;
     border-radius: 8px;
     line-height: 1.5;
 }
